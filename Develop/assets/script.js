@@ -102,7 +102,7 @@ var saveTasks = function () {
 
 var displayTasks = function() {
     day.forEach(function (_thisHour) {
-        $('#${_thisHour.id}').val(_thisHour.reminder);
+        $(_thisHour.id).val(_thisHour.reminder);
     })
 }
 
@@ -123,10 +123,11 @@ day.forEach(function(thisHour) {
     $(".container").append(hourRow);
 
     var hourSpace = $("<div>")
-    .text('${thisHour.hour}${thisHour.meridiem}')
+    .text(thisHour.hour, moment().format("hhA"))
     .attr({
         "class": "col-md-2 hour"
     });
+    
 
     var hourData = $("<div>")
     .attr( {
