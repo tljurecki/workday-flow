@@ -1,3 +1,4 @@
+//variable for time on the calendar
 var day = [
     {
         id: "0",
@@ -78,21 +79,25 @@ var day = [
         reminder: ""
     },
 ]
+//get current date/time
 var getHeaderDate = function () {
     var currentHeaderDate = moment().format('dddd, MMMM Do');
     $("#currentDay").text(currentHeaderDate);
 };
 
+//function to save task items
 var saveTasks = function () {
     localStorage.setItem("day" , JSON.stringify(day));
 };
 
+//function to display saved tasks
 var displayTasks = function() {
     day.forEach(function (_thisHour) {
         $(_thisHour.id).val(_thisHour.reminder);
     })
 }
 
+//function to return saved tasks to display
 var loadTasks = function() {
     var storedTasks = JSON.parse(localStorage.getItem("day"));
     if (storedTasks) {
@@ -103,6 +108,7 @@ var loadTasks = function() {
 }
 getHeaderDate();
 
+//generates the rows with each hour displayed on the calendar
 day.forEach(function(thisHour) {
     var hourRow = $("<form>").attr({
         "class": "row"
@@ -115,7 +121,7 @@ day.forEach(function(thisHour) {
         "class": "col-md-2 hour"
     });
     
-
+//changes the color of the hour blocks based on current time
     var hourData = $("<div>")
     .attr( {
         "class": "col-md-9 description p-0"
@@ -147,6 +153,7 @@ day.forEach(function(thisHour) {
 })
 loadTasks();
 
+//event listener to save tasks
 $(".saveBtn").on("click", function(event) {
     event.preventDefault();
     var taskList = $(this).siblings(".description").children("future").attr("id");
