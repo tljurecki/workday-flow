@@ -1,93 +1,80 @@
 var day = [
     {
         id: "0",
-        hour: "09",
+        hour: "09am",
         time: "09",
-        meridiem: "am",
         reminder: ""
     },
     {
         id: "1",
-        hour: "10",
+        hour: "10am",
         time: "10",
-        merideim: "am",
         reminder: ""
     },
     {
         id: "2",
-        hour: "11",
+        hour: "11am",
         time: "11",
-        meridiem: "am",
         reminder: "",
     },
     {
         id: "3",
-        hour: "12",
+        hour: "12pm",
         time: "12",
-        meridiem: "pm",
         reminder: ""
     },
     {
         id: "4",
-        hour: "01",
+        hour: "01pm",
         time: "13",
-        meridiem: "pm",
         reminder: ""
     },
     {
         id: "5",
-        hour: "02",
+        hour: "02pm",
         time: "14",
-        meridiem: "pm",
         reminder: ""
     },
     {
         id: "6",
-        hour: "03",
+        hour: "03pm",
         time: "15",
-        meridiem: "pm",
         reminder: ""
     },
     {
         id: "7",
-        hour: "04",
+        hour: "04pm",
         time: "16",
-        meridiem: "pm",
         reminder: ""
     },
     {
         id: "8",
-        hour: "05",
+        hour: "05pm",
         time: "17",
-        meridiem: "pm",
         reminder: ""
     },
     {
         id: "9",
-        hour: "06",
+        hour: "06pm",
         time: "18",
-        meridiem: "pm",
         reminder: ""
     },
     {
         id: "10",
-        hour: "07",
+        hour: "07pm",
         time: "19",
-        meridiem: "pm",
         reminder: ""
     },
     {
         id: "11",
-        hour: "08",
+        hour: "08pm",
         time: "20",
-        meridiem: "pm",
         reminder: ""
     },
     {
         id: "12",
-        hour: "09",
+        hour: "09pm",
         time: "21",
-        meridiem: "pm",
         reminder: ""
     },
 ]
@@ -123,7 +110,7 @@ day.forEach(function(thisHour) {
     $(".container").append(hourRow);
 
     var hourSpace = $("<div>")
-    .text(thisHour.hour, moment().format("hhA"))
+    .text(thisHour.hour, moment().hour())
     .attr({
         "class": "col-md-2 hour"
     });
